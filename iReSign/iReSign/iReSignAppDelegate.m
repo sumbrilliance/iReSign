@@ -339,8 +339,8 @@ static NSString *kiTunesMetadataFileName            = @"iTunesMetadata";
                     NSLog(@"Mobileprovision identifier: %@",identifierInProvisioning);
                     
                     NSDictionary *infoplist = [NSDictionary dictionaryWithContentsOfFile:[appPath stringByAppendingPathComponent:@"Info.plist"]];
-                    if ([identifierInProvisioning isEqualTo:[infoplist objectForKey:kKeyBundleIDPlistApp]]) {
-                        NSLog(@"Identifiers match");
+                    if (identifierInProvisioning && [infoplist objectForKey:kKeyBundleIDPlistApp]) {
+                        NSLog(@"Bundle id from info.plist = %@",[infoplist objectForKey:kKeyBundleIDPlistApp]);
                         identifierOK = TRUE;
                     }
                     
